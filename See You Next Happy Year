@@ -7,13 +7,16 @@ function nextHappyYear($year) {
   if($frst == $scnd) {
   	$year = $year + 100 - $thrt*10 - $frth +1;
   }
-  for ($i = $year; $frst == $thrt xor $thrt == $scnd xor $frth == $frst xor $thrt == $frth xor $frst == $scnd; ) {
-	if ($frst == $thrt || $thrt == $scnd) {
+  for ($i = $year; $frst == $thrt xor $thrt == $scnd; ) {
 		$i += 10;
-	} //elseif ($frth == $frst || $thrt == $frth || $frst == $scnd) {
+	} 
+ // for ($i = $year; $frst == $thrt xor $thrt == $scnd xor $frth == $frst xor $thrt == $frth xor $frst == $scnd; ) {
+//	if ($frst == $thrt || $thrt == $scnd) {
+//		$i += 10;
+//	} //elseif ($frth == $frst || $thrt == $frth || $frst == $scnd) {
 //		$i += 1;
 //	}
-  }
+  
 return $i;
 }
-echo nextHappyYear(5045);
+echo nextHappyYear(1005);
