@@ -4,19 +4,23 @@ function nextHappyYear($year) {
   $scnd = floor(($year - $frst *1000) / 100);
   $thrt = floor(($year - $frst *1000 - $scnd*100) / 10);
   $frth = $year - $frst *1000 - $scnd*100 - $thrt*10;
+
   if($frst == $scnd) {
   	$year = $year + 100 - $thrt*10 - $frth +1;
   }
-  for ($i = $year; $frst == $thrt xor $thrt == $scnd; ) {
-		$i += 10;
+  for ($i = $year; $i <= 9999; ) {
+  	$i += 10;
+	if ($frst !== $thrt || $scnd !== $thrt) {
+			break;
 	} 
+ // } 
  // for ($i = $year; $frst == $thrt xor $thrt == $scnd xor $frth == $frst xor $thrt == $frth xor $frst == $scnd; ) {
 //	if ($frst == $thrt || $thrt == $scnd) {
 //		$i += 10;
 //	} //elseif ($frth == $frst || $thrt == $frth || $frst == $scnd) {
 //		$i += 1;
-//	}
-  
-return $i;
+  }
+  $year = $i;
+return $year;
 }
-echo nextHappyYear(1005);
+echo nextHappyYear(1000);
