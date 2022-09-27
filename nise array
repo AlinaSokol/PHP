@@ -1,0 +1,24 @@
+<?php
+function isNice($arr) {
+	if ($arr == []) {
+		return false;
+	}
+  $newArr = [];
+  for ($i = 0; $i < count($arr); $i++) {
+    $newArr[] = $arr[$i] + 1;
+    $newArr[] = $arr[$i] - 1;  
+  }
+  //print_r($newArr);
+  $someArr = [];
+  for ($j = 0; $j < count($arr); $j++) {
+  	for ($k = 0; $k < count($newArr); $k++) {
+  		if ($arr[$j] == $newArr[$k]) {
+  			$someArr[] = $newArr[$k];
+  			break;
+  		} 
+  	}
+  }
+  	print_r($someArr);
+  return $arr == $someArr;
+}
+echo isNice([]);
