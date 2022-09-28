@@ -1,0 +1,10 @@
+function duck_duck_goose($players, $goose) {
+  
+  for ($i = 0, $j = 1; $j <= $goose; $i++, $j++) {
+    $n = $players[$i]["name"];
+    if ($i == count($players) - 1) {
+      $i = -1;
+    }
+  }
+  return $n;
+}
