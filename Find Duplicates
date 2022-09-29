@@ -1,0 +1,38 @@
+function duplicates($arr) {
+  $newArr = [];
+  $i = 0;
+  $j = 0;
+    while ($i < count($arr)) {
+      while ($j < count($arr)) {
+        if ($arr[$i] === $arr[$j] && $i > $j) {
+          $newArr[] = $arr[$j];
+          break;
+        }
+        $j++;
+      }
+      $j = 0;
+      $i++;
+    }
+    $someArr = array_unique($newArr);
+  //  print_r ($someArr);
+    for ($k = 0; $k < count($someArr); $k++){
+      if ($someArr[$k] == null) {
+      continue;
+      }
+       $endArr[] = $someArr[$k];
+    }
+ return $endArr;
+ // return array_unique($newArr);
+}
+
+ОТВЕТ1
+function duplicates($arr) {
+  // TODO: return the array of duplicates from arr
+  $s = [];
+  if ($arr == [] ) return $s;
+  foreach ($arr as $k => $a) {
+       if (in_array($a, array_slice($arr, 0, max(0,$k)), true) && ! in_array($a, $s, true) )  $s [] = $a;
+  }
+  return $s;
+}
+var_dump (duplicates([5, 6, '7', [], 4, [], 3, 1, '7', 3, 0, 0, 0]));
