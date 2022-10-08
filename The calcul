@@ -1,29 +1,31 @@
-$calculator = function ($num2, $symbol, $num1){
-	$sum = function ($num2, $num1) {
-		return $num2 + $num1;
-	};
-	$sub = function ($num2, $num1) {
-		return $num2 - $num1;
-	}; 
-	$multiply = function ($num2, $num1) {
-		return $num2 * $num1;
-	};
-	$divide = function ($num2, $num1) {
-		return $num2 / $num1;
-	};
-	switch ($symbol) {
- 		case '+':
- 			return $sum ($num2, $num1);
- 			break;
- 		case '-':
- 			return $sub ($num2, $num1);
- 			break;
- 		case '*':
- 			return $multiply ($num2, $num1);
- 			break;
- 		case '/':
- 			return $divide ($num2, $num1);
- 			break;
-	}
-};
-echo ($calculator(12, "*", 3));
+function calculator ($symbol) {
+ $someOperation = function ($num2, $num1) use ($symbol) {
+  $sumOpr = function ($num2, $num1) {
+   return $num2 + $num1;
+  };
+  $subOpr = function ($num2, $num1) {
+   return $num2 - $num1;
+  }; 
+  $multiplyOpr = function ($num2, $num1) {
+   return $num2 * $num1;
+  };
+  $divideOpr = function ($num2, $num1) {
+   return $num2 / $num1;
+  };
+  switch ($symbol) {
+    case '+':
+     return $sumOpr($num2, $num1);
+     break;
+    case '-':
+     return $subOpr($num2, $num1);
+     break;
+    case '*':
+     return $multiplyOpr($num2, $num1);
+     break;
+    case '/':
+     return $divideOpr($num2, $num1);
+     break;
+  }
+ };
+ return $someOperation;
+}
