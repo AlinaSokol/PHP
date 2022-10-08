@@ -29,3 +29,15 @@ function calculator ($symbol) {
  };
  return $someOperation;
 }
+$sum = calculator("+");
+var_dump ($sum(2, 3));
+echo ($sum(2, 3));
+
+$sub = calculator("-");
+echo $sub(3, 2);
+
+$multiple = calculator("*");
+echo $multiple(2, 3);
+
+$divide = calculator("/");
+echo $divide(6, 2);
