@@ -24,17 +24,17 @@ $findBestStudents = function ($arr) {
 };
 //print_r ($findBestStudents($studentsReport));
 $sort = function ($arr) {
-	if (counr($arr) < 2) {
+	if (count($arr) < 2) {
 		return $arr;
 	} else {
-		$element = $arr[0];
+		$element = $arr['ТётяМотя'];
 		$less = [];
 		$greter = [];
-		for ($i = 1; $i < count($arr); $i++){
-			if ($arr[$i] <= $element){
-				$less[] = $arr[$i];
+		foreach ($arr as $rating) {
+			if ($rating <= $element){
+				$less[] = $rating;
 			} else {
-				$greter[] = $arr[$i];
+				$greter[] = $rating;
 			}
 		}
 		return array_merge($sort($less), [$element], $sort($greter));
