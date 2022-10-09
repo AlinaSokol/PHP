@@ -4,9 +4,7 @@ $positiveNumberCondition = function ($arr){
 	for ($i = 0; $i < count($arr); $i++){
 		if ($arr[$i] > 0) {
 			$newArr[] = $arr[$i];	
-		} else {
-			continue;
-		}
+		} 
 	}
 	return $newArr;
 };
@@ -15,9 +13,7 @@ $evenNumberCondition = function ($arr){
 	for ($i = 0; $i < count($arr); $i++){
 		if ($arr[$i] % 2 === 0) {
 			$newArr[] = $arr[$i];	
-		} else {
-			continue;
-		}
+		} 
 	}
 	return $newArr;
 };
