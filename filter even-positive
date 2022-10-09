@@ -1,0 +1,29 @@
+<?php
+$positiveNumberCondition = function ($arr){
+	$newArr = [];
+	for ($i = 0; $i < count($arr); $i++){
+		if ($arr[$i] > 0) {
+			$newArr[] = $arr[$i];	
+		} else {
+			continue;
+		}
+	}
+	return $newArr;
+};
+$evenNumberCondition = function ($arr){
+	$newArr = [];
+	for ($i = 0; $i < count($arr); $i++){
+		if ($arr[$i] % 2 === 0) {
+			$newArr[] = $arr[$i];	
+		} else {
+			continue;
+		}
+	}
+	return $newArr;
+};
+function filter($array, $filterCondition){
+	return $filterCondition($array);
+}
+
+print_r(filter([1, -2, 44, -50, 0, 35], $positiveNumberCondition)); //1, 44, 35
+print_r(filter([1, -2, 44, -50, 0, 35], $evenNumberCondition)); //-2, 44, -50, 0
