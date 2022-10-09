@@ -1,0 +1,19 @@
+//echo pi(); // 3.1415926535898
+$rst = M_PI*5;
+echo $rst;
+
+/*Реализовать функцию shapeValue, которая может принимать разное число аргументов(нужны для подсчёта объёма фигуры). В зависимости от числа аргументов, эта функция должна возвращать функцию для подсчёта объёма подходящей фигуры. Реализовать возможность высчитывать таким образом объём сферы(радиус сферы), конуса(радиус основания, высота) и параллелограмма(высота, ширина, длина).*/
+function shapeValue(...$arguments){
+	$arr = [];
+	foreach ($arguments)
+}
+
+$sphereValueFunc = shapeValue(5);
+$sphereValue = $sphereValue(5);
+
+$coneValueFunc = shapeValue(4, 5);
+$coneValue = $coneValueFunc(4, 5);
+
+$parallelogramValueFunc = shapeValue(4, 5, 6);
+$parallelogramValue = $parallelogramValueFunc(4, 5, 6);
+
