@@ -1,19 +1,45 @@
-//echo pi(); // 3.1415926535898
-$rst = M_PI*5;
-echo $rst;
-
 /*Реализовать функцию shapeValue, которая может принимать разное число аргументов(нужны для подсчёта объёма фигуры). В зависимости от числа аргументов, эта функция должна возвращать функцию для подсчёта объёма подходящей фигуры. Реализовать возможность высчитывать таким образом объём сферы(радиус сферы), конуса(радиус основания, высота) и параллелограмма(высота, ширина, длина).*/
 function shapeValue(...$arguments){
 	$arr = [];
-	foreach ($arguments)
+	foreach ($arguments as $argument){
+		$arr[] = $argument;
+	}
+	$sphere = function ($radiusSphere) {
+		return 4 * M_PI * $radiusSphere**3 / 3;
+	};
+	$cone = function ($radius, $height) {
+		return M_PI * $radius**2 * $height / 3;
+	};
+	$pArAlLeLePiPeD = function ($a, $b, $c) {
+		return $a * $b * $c;
+	};
+	switch (count($arr)) {
+		case 1:
+			return $sphere;
+			break;
+		case 2:
+			return $cone;
+			break;
+		case 3:
+			return $pArAlLeLePiPeD;
+			break;
+	}
 }
+//print_r (shapeValue(2));
+
 
 $sphereValueFunc = shapeValue(5);
-$sphereValue = $sphereValue(5);
+$sphereValue = $sphereValueFunc(5);
+echo $sphereValue; 
+echo "    ";
 
 $coneValueFunc = shapeValue(4, 5);
 $coneValue = $coneValueFunc(4, 5);
+echo $coneValue;
+echo "    ";
 
-$parallelogramValueFunc = shapeValue(4, 5, 6);
-$parallelogramValue = $parallelogramValueFunc(4, 5, 6);
+$pArAlLeLePiPeDValueFunc = shapeValue(4, 5, 6);
+$pArAlLeLePiPeDValue = $pArAlLeLePiPeDValueFunc(4, 5, 6);
+echo $pArAlLeLePiPeDValue;
+echo "    ";
 
