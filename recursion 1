@@ -1,0 +1,9 @@
+/*1. Дано натуральное число n. Выведите все числа от 1 до n.*/
+function recursion($n) {
+ if($n != 0) {
+  $n--;
+  recursion($n);
+  echo $n + 1;
+ } 
+} 
+recursion(5); // 12345
