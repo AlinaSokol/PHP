@@ -1,29 +1,13 @@
 /*2. Дано натуральное число n>1. Проверьте, является ли оно простым. Программа должна вывести слово YES, если число простое и NO, если число составное. */
 function recursion($n, $divider = 2) {
-	if ($divider > 1 && $divider < $n) {
-		$rst = $n % $divider;
-		$ter = $rst === 0 ? 'YES': $divider++ && recursion($n, $divider) && 'NO';
-		echo $ter.' ';
-		
-	
-		//echo $divider;   $z = $a < $b ? $a + $b : $a - $b;
-		
-		//$divider++;
-		//recursion($n, $divider);
-		//	if ($n % $divider-- === 0){
-		
-		//echo $divider;
-	//	echo $n;
-		
-		//return 'YES';
-	//}
-	} 
-	/*if ($n % $divider === 0){
-		
-		//echo $divider;
-		//echo $n;
-		
-		return 'YES';
-	}*/
+	if ($n % $divider === 0 && $divider < $n) {
+		echo 'YES';
+	} elseif ($n % $divider != 0 && $divider < $n) {
+		$divider++; 
+		recursion($n, $divider);
+	} elseif ($divider = $n) {
+		echo 'NO';
+	}
 }
-recursion(1000); // 
+recursion(123); // YES
+recursion(199); // NO
