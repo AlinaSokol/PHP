@@ -11,3 +11,10 @@ function recursion($n, $divider = 2) {
 }
 recursion(123); // YES
 recursion(199); // NO
+
+function recursion($n, $divider = 2) {
+	$rst = $n % $divider === 0 && $divider < $n ? 'YES': $ter = $n % $divider != 0 && $divider < $n ? $divider++ && recursion($n, $divider) : 'NO';
+	echo $rst;
+}
+recursion(422); // YES
+recursion(173); // NO
