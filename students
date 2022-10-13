@@ -11,34 +11,38 @@ $studentsReport = [
   'Сыроедова' => 2.5,
   'Шмыгуль' => 4
 ];
+$sort = function ($arr) {
+	$index = [];
+	$value = [];
+		foreach ($arr as $studentName => $rating) {
+			$index[] = $studentName;
+			$value[] = $rating;
+		}
+		for ($i = 0; $i < count($value); $i++) {
+			for ($j = 0; $j < count($value) - 1; $j++) {
+				if ($value[$j] < $value[$j + 1]){
+				$bufferVal = $value[$j];
+				$value[$j] = $value[$j + 1];
+				$value[$j + 1] = $bufferVal;
+				$bufferInx = $index[$j];
+				$index[$j] = $index[$j + 1];
+				$index[$j + 1] = $bufferInx;
+				}
+			}
+		}
+	return array_combine ($index, $value);
+};
+//print_r ($sort($studentsReport));
 $findBestStudents = function ($arr) {
 	$moreThanFourArr = [];
 	foreach ($arr as $studentName => $rating) {
-		if ($rating > 4) {
-			$moreThanFourArr[] = $studentName;
+		if ($rating > 3) {
+			$moreThanFourArr[$studentName] = $rating;
 		} else {
 			continue;
 		}
 	}
 	return $moreThanFourArr;
-};
-//print_r ($findBestStudents($studentsReport));
-$sort = function ($arr) {
-	if (count($arr) < 2) {
-		return $arr;
-	} else {
-		$element = $arr['ТётяМотя'];
-		$less = [];
-		$greter = [];
-		foreach ($arr as $rating) {
-			if ($rating <= $element){
-				$less[] = $rating;
-			} else {
-				$greter[] = $rating;
-			}
-		}
-		return array_merge($sort($less), [$element], $sort($greter));
-	}
 };
 function showBestStudents($srt, $fBS, $sR) {
 $sortArray = $srt($sR);
