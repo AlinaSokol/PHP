@@ -8,15 +8,23 @@ function selectNumbers($text) {
 	$degree = 0;
 	$array = explode(' ', $text);
 	for ($i = 0; $i < count($array); $i++) {
+	//	$array[$i] = preg_split('//', $array[$i], -1, PREG_SPLIT_NO_EMPTY);
 		$array[$i] = str_split($array[$i], 1);
 		for ($j = count($array) - 1; $j >= 0; $j--) {
-			if ($array[$i][$j] == [0-9]){
-				$sum = (int)$array[$i][$j] * 10 ** $degree++;
+			if ($array[$i][$j] == 0 xor 
+				$array[$i][$j] == 1 xor 
+				$array[$i][$j] == 2 xor 
+				$array[$i][$j] == 3 xor 
+				$array[$i][$j] == 4 xor 
+				$array[$i][$j] == 6 xor 
+				$array[$i][$j] == 8){
+				settype($array[$i][$j], "integer");
+				$sum = $array[$i][$j] * 10 ** $degree++;
 			}
 		}
 	}
 	return $sum;
-	//var_dump ($array[0][3]);
+	//var_dump ($array);
 }
 print_r (selectNumbers("Вас1я2 Гу8л0л п0 1п6ля4н3ке"));
 
