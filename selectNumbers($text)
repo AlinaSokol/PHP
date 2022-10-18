@@ -1,0 +1,26 @@
+/* №2: Написать ф-цию, которая из произвольной буквенно-циферной строки выделит все цифры в каждом слове и посчитает их сумму. Пример: "Вас1я2 Гу8л0л п0 1п6ля4н3ке" = 12 + 80 + 0 + 1643
+Примечания: 
+1 - функция не принимает аргументов
+2 - выводимое число должно быть типа  строки*/
+function selectNumbers($text) {
+	$globalSum = 0;
+	$sum = 0;
+	$degree = 0;
+	$array = explode(' ', $text);
+	for ($i = 0; $i < count($array); $i++) {
+		$array[$i] = str_split($array[$i], 1);
+		for ($j = count($array) - 1; $j >= 0; $j--) {
+			if ($array[$i][$j] == [0-9]){
+				$sum = (int)$array[$i][$j] * 10 ** $degree++;
+			}
+		}
+	}
+	return $sum;
+	//var_dump ($array[0][3]);
+}
+print_r (selectNumbers("Вас1я2 Гу8л0л п0 1п6ля4н3ке"));
+
+/*$text = 'Вас1я2';
+$array = str_split($text, 1);
+settype($array[3], "integer");
+var_dump ($array[3]);*/
