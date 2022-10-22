@@ -1,33 +1,17 @@
-
-/* №2: Написать ф-цию, которая из произвольной буквенно-циферной строки выделит все цифры в каждом слове и посчитает их сумму. Пример: "Вас1я2 Гу8л0л п0 1п6ля4н3ке" = 12 + 80 + 0 + 1643
-Примечания: 
-1 - функция не принимает аргументов
-2 - выводимое число должно быть типа  строки*/
-
-$text = "Vas4ya7 Gu7i0i p0 6p3ia4n3ke";
-$selectNumbers = function () use ($text){
+$text = "В3ас3я2 Гу8л0л п0 3п1л2н3ке";
+function selectNumbers(){
+	global $text;
 	$sum = 0;
 	$degree = 0;
 	$array = explode(' ', $text);
 	for ($i = 0; $i < count($array); $i++) {
-		$array[$i] = str_split($array[$i], 1);
-		for ($j = count($array[$i]) - 1; $j >= 0; $j--) {
-			if ($array[$i][$j] == 0 xor 
-				$array[$i][$j] == 1 xor 
-				$array[$i][$j] == 2 xor 
-				$array[$i][$j] == 3 xor 
-				$array[$i][$j] == 4 xor
-				$array[$i][$j] == 5 xor
-				$array[$i][$j] == 6 xor
-				$array[$i][$j] == 7 xor
-				$array[$i][$j] == 8 xor
-				$array[$i][$j] == 9){
+		for ($j = strlen($array[$i]) - 1; $j >=0 ; $j--) {
+			if ((int)$array[$i][$j] != null || $array[$i][$j] == 0 ) {
 				$sum += (int)$array[$i][$j] * 10 ** $degree++;
 			}
 		}
 		$degree = 0;
-	}
-	settype($sum, "string");
-	return $sum;
-};
-var_dump ($selectNumbers()); //string(4) "6460"
+	}	
+	return (string)$sum;
+}
+var_dump (selectNumbers()); //string(4) "3535"
