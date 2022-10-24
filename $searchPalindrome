@@ -1,23 +1,19 @@
-$searchPalindrome = function ($number) {
+<?php
+$outputNotPalindrome = function () {
+	var_dump ((float)NUM);
+	return 'not palindrome';
+};
+$outputPalindrome = function () {
+	var_dump ((float)NUM);
+	return 'palindrome';
+};
+$searchPalindrome = function ($number) use ($outputPalindrome, $outputNotPalindrome){
 	define('NUM', $number);
 	$array = explode('.', NUM);
-	$outputPalindrome = function ($val) {
-		if ($val == '+') {
-			var_dump ((float)NUM);
-			return 'palindrome';
-		} elseif ($val == '-') {
-			var_dump ((float)NUM);
-			return 'not palindrome';
-		}
-	};
-	if (strlen($array[0]) != strlen($array[1])) {
-		return $outputPalindrome('-');
-	}
+	if (strlen($array[0]) != strlen($array[1])) return $outputNotPalindrome();
 	for ($i=0; $i < strlen($array[0]); $i++) { 
-		if($array[0][$i] != $array[1][strlen($array[0]) - 1 - $i]){
-			return $outputPalindrome('-');
-		} 
+		if($array[0][$i] != $array[1][strlen($array[0]) - 1 - $i]) return $outputNotPalindrome();
 	}
-	return $outputPalindrome('+');
+	return $outputPalindrome();
 };
-echo ($searchPalindrome(342.24311));
+echo ($searchPalindrome(342.535));
