@@ -16,4 +16,6 @@ $searchPalindrome = function ($number) use ($outputPalindrome, $outputNotPalindr
 	}
 	return $outputPalindrome();
 };
-echo ($searchPalindrome(342.535));
+echo ($searchPalindrome(342.535)); 
+//float(342.535)
+//not palindrome
